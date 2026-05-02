@@ -5,5 +5,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://akhaisin.github.io',
+  base: '/marynakantsyr.com',
   integrations: [react()]
 });

@@ -1,6 +1,7 @@
 ---
 import Nav from "../components/Nav.astro";
 import "../styles/global.css";
+import { resolveUrl } from "../utils/url";
 
 interface Props {
   title?: string;
@@ -20,13 +21,13 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title === "Maryna Kantsyr ART" ? title : `${title} | Maryna Kantsyr ART`}</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href={resolveUrl("/favicon.ico")} />
   </head>
   <body>
     <header class="site-header">
-      <a href="/" class="header-banner-link" aria-label="Maryna Kantsyr ART — Home">
+      <a href={resolveUrl("/")} class="header-banner-link" aria-label="Maryna Kantsyr ART — Home">
         <img
-          src="/images/header-banner.jpg"
+          src={resolveUrl("/images/header-banner.jpg")}
           alt="Maryna Kantsyr ART"
           class="header-banner"
           width="1200"

@@ -1,4 +1,5 @@
 ---
+import { resolveUrl } from "../utils/url";
 const navItems = [
   {
     label: "GALLERY",
@@ -29,7 +30,7 @@ const pathname = Astro.url.pathname;
     {navItems.map((item) => (
       <li class={`nav-item${item.children ? " has-dropdown" : ""}`}>
         <a
-          href={item.href}
+          href={resolveUrl(item.href)}
           class={`nav-link${pathname.startsWith(item.href.split("/").slice(0, 2).join("/")) ? " active" : ""}`}
         >
           {item.label}
@@ -40,7 +41,7 @@ const pathname = Astro.url.pathname;
             {item.children.map((child) => (
               <li>
                 <a
-                  href={child.href}
+                  href={resolveUrl(child.href)}
                   class={`dropdown-link${pathname === child.href ? " active" : ""}`}
                 >
                   {child.label}

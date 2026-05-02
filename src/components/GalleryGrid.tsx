@@ -2,6 +2,7 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import type { Artwork } from "../data/galleries";
+import { resolveUrl } from "../utils/url";
 
 interface Props {
   images: Artwork[];
@@ -19,7 +20,7 @@ export default function GalleryGrid({ images }: Props) {
   }
 
   const slides = images.map((img) => ({
-    src: img.src,
+    src: resolveUrl(img.src),
     alt: img.alt,
   }));
 
@@ -33,7 +34,7 @@ export default function GalleryGrid({ images }: Props) {
             onClick={() => setIndex(i)}
             aria-label={`View ${img.alt}`}
           >
-            <img src={img.src} alt={img.alt} loading="lazy" />
+            <img src={resolveUrl(img.src)} alt={img.alt} loading="lazy" />
           </button>
         ))}
       </div>

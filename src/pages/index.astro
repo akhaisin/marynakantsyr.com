@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { resolveUrl } from "../utils/url";
 ---
 
 <Layout title="Maryna Kantsyr ART">
@@ -13,17 +14,17 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <section class="circles">
-    <a href="/gallery/nature" class="circle-link">
+    <a href={resolveUrl("/gallery/nature")} class="circle-link">
       <div class="circle">
         <span>Nature</span>
       </div>
     </a>
-    <a href="/gallery/people" class="circle-link">
+    <a href={resolveUrl("/gallery/people")} class="circle-link">
       <div class="circle">
         <span>People</span>
       </div>
     </a>
-    <a href="/gallery/cubes" class="circle-link">
+    <a href={resolveUrl("/gallery/cubes")} class="circle-link">
       <div class="circle">
         <span>Cubes</span>
       </div>
