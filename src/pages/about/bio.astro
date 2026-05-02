@@ -1,0 +1,89 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Bio">
+  <div class="content-page">
+    <h1>Bio</h1>
+
+    <div class="prose">
+      <p>
+        Maryna (pronounced Marina) is an artist residing in the Pacific North-West near
+        Seattle, surrounded by nature. Though originally from an urban environment, she now
+        prefers countryside living while maintaining connections to Seattle's art scene and
+        urban exploration.
+      </p>
+
+      <p>
+        Her core beliefs center on how colors affect people's moods subconsciously, and the
+        importance of maintaining healthy happiness and faith in people.
+      </p>
+
+      <h2>Interests</h2>
+      <ul>
+        <li>Gardening and visualizing plant compositions</li>
+        <li>Home renovation and bringing visions to completion</li>
+        <li>Hiking moderate-distance trails</li>
+        <li>Psychology</li>
+      </ul>
+
+      <h2>Education</h2>
+      <ul>
+        <li>
+          2003–2008 — Southern Ukrainian National Pedagogical University K.D. Ushinsky<br />
+          <em>Fine and Decorative and Applied Arts</em>
+        </li>
+        <li>
+          1999–2003 — Republican College of Fine Arts "Alexandru Plămădeală"<br />
+          <em>Fine Arts</em>
+        </li>
+      </ul>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .content-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  .prose h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 2rem 0 0.75rem;
+    color: var(--color-text);
+  }
+
+  .prose p {
+    margin-bottom: 1rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .prose ul {
+    padding-left: 1.5rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose em {
+    color: var(--color-text-light);
+  }
+</style>
