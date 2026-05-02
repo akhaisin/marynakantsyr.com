@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import GalleryGrid from "../../components/GalleryGrid.tsx";
+import GalleryGrid from "../../components/GalleryGrid";
 import { galleries } from "../../data/galleries";
 
 const gallery = galleries.before;
@@ -9,23 +9,6 @@ const gallery = galleries.before;
 <Layout title={gallery.title}>
   <div class="gallery-page">
     <h1>{gallery.title}</h1>
-    <GalleryGrid images={gallery.images} title={gallery.title} client:load />
+    <GalleryGrid images={gallery.images} client:load />
   </div>
 </Layout>
-
-<style>
-  .gallery-page {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 2.5rem 1.5rem 4rem;
-  }
-
-  h1 {
-    font-size: 1.75rem;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    color: var(--color-text);
-  }
-</style>
