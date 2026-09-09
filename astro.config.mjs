@@ -3,9 +3,9 @@ import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
 
-// https://astro.build/config
+// Served on the custom apex domain via GitHub Pages (see public/CNAME).
 export default defineConfig({
-  site: 'https://akhaisin.github.io',
-  base: '/marynakantsyr.com',
+  site: 'https://marynakantsyr.com',
+  base: '/',
   integrations: [react()]
 });

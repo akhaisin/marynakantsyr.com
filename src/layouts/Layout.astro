@@ -1,6 +1,7 @@
 ---
 import Nav from "../components/Nav.astro";
 import "../styles/global.css";
+import { UNDER_CONSTRUCTION } from "../config";
 import { resolveUrl } from "../utils/url";
 
 interface Props {
@@ -22,47 +23,71 @@ const {
     <meta name="description" content={description} />
     <title>{title === "Maryna Kantsyr ART" ? title : `${title} | Maryna Kantsyr ART`}</title>
     <link rel="icon" type="image/x-icon" href={resolveUrl("/favicon.ico")} />
+    <script is:inline define:vars={{ underConstruction: UNDER_CONSTRUCTION }}>
+      (function () {
+        var KEY = "mk.under_construction";
+        try {
+          var stored = window.localStorage.getItem(KEY);
+          if (stored === null && underConstruction) {
+            window.localStorage.setItem(KEY, "true");
+            stored = "true";
+          }
+          if (stored === "true") {
+            document.documentElement.classList.add("mk-under-construction");
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
-    <header class="site-header">
-      <a href={resolveUrl("/")} class="header-banner-link" aria-label="Maryna Kantsyr ART — Home">
-        <img
-          src={resolveUrl("/images/header-banner.jpg")}
-          alt="Maryna Kantsyr ART"
-          class="header-banner"
-          width="1200"
-          height="320"
-        />
-      </a>
-    </header>
-
-    <div class="site-nav-wrapper">
-      <div class="site-nav-inner">
-        <Nav />
-
-        <div class="social-links">
-          <a href="https://www.facebook.com/pg/mkantsyr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/marynakantsyr/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
-            </svg>
-          </a>
-        </div>
-      </div>
+    <div class="under-construction-overlay">
+      <img
+        src={resolveUrl("/images/mk-arts-under-construction-1280.webp")}
+        alt="Maryna Kantsyr ART — Under construction"
+      />
     </div>
 
-    <main>
-      <slot />
-    </main>
+    <div id="site-content">
+      <header class="site-header">
+        <a href={resolveUrl("/")} class="header-banner-link" aria-label="Maryna Kantsyr ART — Home">
+          <img
+            src={resolveUrl("/images/header-banner.jpg")}
+            alt="Maryna Kantsyr ART"
+            class="header-banner"
+            width="1200"
+            height="320"
+          />
+        </a>
+      </header>
 
-    <footer class="site-footer">
-      <p>© {new Date().getFullYear()} by Maryna Kantsyr ART</p>
-    </footer>
+      <div class="site-nav-wrapper">
+        <div class="site-nav-inner">
+          <Nav />
+
+          <div class="social-links">
+            <a href="https://www.facebook.com/pg/mkantsyr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/marynakantsyr/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p>© {new Date().getFullYear()} by Maryna Kantsyr ART</p>
+      </footer>
+    </div>
   </body>
 </html>
