@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
 
-@font-face {
-  font-family: 'din-next-w01-light';
-  src: url('//static.parastorage.com/fonts/v2/eca8b0cd-45d8-43cf-aee7-ca462bc5497c/v1/e5b59bea-9ab0-489e-a037-9b6bcfc3a47e.woff2') format('woff2'),
-       url('//static.parastorage.com/fonts/v2/eca8b0cd-45d8-43cf-aee7-ca462bc5497c/v1/e5b59bea-9ab0-489e-a037-9b6bcfc3a47e.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+.my-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
 }
 
 /* ========== RESET ========== */
