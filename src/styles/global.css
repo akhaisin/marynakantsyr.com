@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
 
-.your-element {
+body,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6,
+body p,
+body a,
+body span,
+body li {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
 }
