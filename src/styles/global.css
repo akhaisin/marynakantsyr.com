@@ -31,7 +31,6 @@
   --font-nav: 'Raleway', sans-serif;
   --max-width: 980px;
   --nav-height: 40px;
-  --header-height: 293px;
 }
 
 /* ========== BASE ========== */
@@ -84,7 +83,7 @@ img {
 
 .header-banner {
   width: 100%;
-  height: var(--header-height);
+  aspect-ratio: 1200 / 320;
   object-fit: cover;
   object-position: center top;
   display: block;
