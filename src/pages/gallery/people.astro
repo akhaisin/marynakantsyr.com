@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import GalleryGrid from "../../components/GalleryGrid";
+import GalleryMasonry from "../../components/GalleryMasonry.astro";
 import { galleries } from "../../data/galleries";
 
 const gallery = galleries.people;
@@ -9,6 +9,6 @@ const gallery = galleries.people;
 <Layout title={gallery.title}>
   <div class="gallery-page">
     <h1>{gallery.title}</h1>
-    <GalleryGrid images={gallery.images} client:load />
+    <GalleryMasonry images={gallery.images} />
   </div>
 </Layout>

@@ -1,0 +1,48 @@
+---
+import { Image, getImage } from "astro:assets";
+import { Masonry } from "astro-masonry";
+import GalleryLightbox from "./GalleryLightbox";
+import type { Artwork } from "../data/galleries";
+
+interface Props {
+  images: Artwork[];
+}
+
+const { images } = Astro.props;
+
+const slides = await Promise.all(
+  images.map(async (img) => {
+    const full = await getImage({ src: img.src, width: 2000 });
+    const { id, alt, caption, year, medium, note } = img;
+    return { id, src: full.src, alt, caption, year, medium, note };
+  }),
+);
+---
+
+{
+  images.length === 0 ? (
+    <div class="gallery-empty">Images coming soon.</div>
+  ) : (
+    <>
+      <Masonry breakpointCols={{ default: 3, 700: 2, 500: 1 }} sortByHeight={true}>
+        {images.map((img, i) => (
+          <button
+            type="button"
+            class="gallery-item"
+            data-index={i}
+            aria-label={`View ${img.alt}`}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              widths={[400, 600, 800]}
+              sizes="(max-width: 500px) 100vw, (max-width: 700px) 50vw, 330px"
+              loading="lazy"
+            />
+          </button>
+        ))}
+      </Masonry>
+      <GalleryLightbox slides={slides} client:load />
+    </>
+  )
+}
