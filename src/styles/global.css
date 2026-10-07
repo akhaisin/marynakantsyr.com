@@ -478,6 +478,7 @@ img {
 }
 
 .lightbox-figure img {
+  cursor: pointer;
   display: block;
   max-width: 100%;
   object-fit: contain;

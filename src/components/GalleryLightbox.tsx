@@ -49,6 +49,7 @@ export default function GalleryLightbox({ slides }: Props) {
         setIndex(-1);
       }}
       index={index}
+      controller={{ closeOnBackdropClick: true }}
       slides={slides}
       render={{
         slide: ({ slide, rect }) => {
@@ -58,6 +59,7 @@ export default function GalleryLightbox({ slides }: Props) {
               <img
                 src={src}
                 alt={alt}
+                onClick={() => setIndex((index + 1) % slides.length)}
                 style={{ maxHeight: Math.max(rect.height - CAPTION_SPACE, 0) }}
               />
               <figcaption>
@@ -74,8 +76,10 @@ export default function GalleryLightbox({ slides }: Props) {
         },
       }}
       on={{
-        view: ({ index: i }) =>
-          history.replaceState(null, "", `#${slides[i].id}`),
+        view: ({ index: i }) => {
+          history.replaceState(null, "", `#${slides[i].id}`);
+          setIndex(i);
+        },
       }}
     />
   );
