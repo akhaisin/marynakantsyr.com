@@ -1,6 +1,7 @@
 import type { ImageMetadata } from "astro";
 
 export interface ArtworkMeta {
+  index: number;
   caption: string;
   year: string;
   medium: string;
@@ -42,6 +43,7 @@ function build(slug: string, title: string): Gallery {
         id,
         src,
         alt: `${title} artwork ${i + 1}`,
+        index: 0,
         caption: id,
         year: "",
         medium: "",
@@ -49,7 +51,8 @@ function build(slug: string, title: string): Gallery {
         note: "",
         ...meta[file],
       };
-    });
+    })
+    .sort((a, b) => a.index - b.index);
   return { slug, title, images };
 }
 
