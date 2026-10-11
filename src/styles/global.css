@@ -83,6 +83,8 @@ img {
 
 .site-header {
   width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
   background: #fff;
 }
 
@@ -93,9 +95,7 @@ img {
 
 .header-banner {
   width: 100%;
-  aspect-ratio: 1200 / 320;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
   display: block;
 }
 
@@ -290,13 +290,13 @@ img {
 /* ========== CONTENT PAGES ========== */
 
 .content-page {
-  max-width: 720px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 2.5rem 1.5rem 4rem;
 }
 
 .content-page--narrow {
-  max-width: 560px;
+  max-width: var(--max-width);
 }
 
 .content-page h1,

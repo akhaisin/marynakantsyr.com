@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "clean": "rm -rf dist node_modules/.astro",
     "astro": "astro"
   },
   "dependencies": {
