@@ -13,8 +13,8 @@ const { images } = Astro.props;
 const slides = await Promise.all(
   images.map(async (img) => {
     const full = await getImage({ src: img.src, width: 2000 });
-    const { id, alt, caption, year, medium, note } = img;
-    return { id, src: full.src, alt, caption, year, medium, note };
+    const { id, alt, caption, year, medium, size, note } = img;
+    return { id, src: full.src, alt, caption, year, medium, size, note };
   }),
 );
 ---

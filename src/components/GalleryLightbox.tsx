@@ -7,6 +7,7 @@ interface Props {
     caption: string;
     year: string;
     medium: string;
+    size: string;
     note: string;
   }[];
 }
@@ -53,7 +54,7 @@ export default function GalleryLightbox({ slides }: Props) {
       slides={slides}
       render={{
         slide: ({ slide, rect }) => {
-          const { src, alt, caption, year, medium, note } = slide as Props["slides"][number];
+          const { src, alt, caption, year, medium, size, note } = slide as Props["slides"][number];
           return (
             <figure className="lightbox-figure">
               <img
@@ -64,9 +65,9 @@ export default function GalleryLightbox({ slides }: Props) {
               />
               <figcaption>
                 <div className="lightbox-caption">{caption}</div>
-                {(year || medium) && (
+                {(year || medium || size) && (
                   <div className="lightbox-detail">
-                    {[year, medium].filter(Boolean).join(", ")}
+                    {[year, medium, size].filter(Boolean).join(", ")}
                   </div>
                 )}
                 {note && <div className="lightbox-detail">{note}</div>}

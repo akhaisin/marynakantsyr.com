@@ -4,6 +4,7 @@ export interface ArtworkMeta {
   caption: string;
   year: string;
   medium: string;
+  size: string;
   note: string;
 }
 
@@ -44,6 +45,7 @@ function build(slug: string, title: string): Gallery {
         caption: id,
         year: "",
         medium: "",
+        size: "",
         note: "",
         ...meta[file],
       };
