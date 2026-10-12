@@ -276,6 +276,7 @@ img {
 
 .circle:hover {
   transform: scale(1.06);
+  background: #F29830;
   box-shadow: 0 8px 24px rgba(44, 46, 84, 0.4);
 }
 
