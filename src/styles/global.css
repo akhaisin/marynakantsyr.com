@@ -269,7 +269,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F29830;
+  background: #BDC125;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
